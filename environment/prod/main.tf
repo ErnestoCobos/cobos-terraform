@@ -5,5 +5,5 @@ resource "aws_route53_zone" "primary" {
 module "cobos_dns" {
   source = "../../modules/route53"
   hosted_zone = var.hosted_zone
-  records = var.records
+  records = jsondecode(var.records)
 }
