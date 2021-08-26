@@ -3,11 +3,11 @@ resource "aws_route53_zone" "main" {
 }
 
 resource "aws_route53_record" "record" {
-  count = length(var.records)
-  type    = var.records[count.index].type
-  name    = var.records[count.index].name
-  ttl     = var.records[count.index].ttl
+  for_each = var.records_a
+  type    = "A"
+  name    = each.key
+  ttl     = 300
   zone_id = aws_route53_zone.main.id
-  records = var.records[count.index].records
+  records = [each.value]
 }
 
