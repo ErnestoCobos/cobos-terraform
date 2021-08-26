@@ -5,7 +5,7 @@
       "type": "A",
       "name": "luna.cobos.io",
       "ttl": "300",
-      "records": [
+      "record": [
         "23.94.207.169"
       ]
     }

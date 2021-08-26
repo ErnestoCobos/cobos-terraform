@@ -5,5 +5,14 @@ resource "aws_route53_zone" "primary" {
 module "cobos_dns" {
   source = "../../modules/route53"
   hosted_zone = var.hosted_zone
-  records = jsondecode(var.records)
+  records = [
+    {
+      type: "A",
+      name: "luna.cobos.io",
+      ttl: "300",
+      record: [
+        "23.94.207.169"
+      ]
+    }
+  ]
 }
